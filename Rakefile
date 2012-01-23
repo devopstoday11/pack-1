@@ -1,7 +1,9 @@
 # encoding: utf-8
+$:.unshift File.join(File.dirname(__FILE__), 'lib')
 
 require 'rubygems'
 require 'bundler'
+require 'pack'
 begin
   Bundler.setup(:default, :development)
 rescue Bundler::BundlerError => e
@@ -17,10 +19,11 @@ Jeweler::Tasks.new do |gem|
   gem.name = "pack"
   gem.homepage = "http://github.com/seryl/pack"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{pack.io console client}
+  gem.description = %Q{pack.io console client}
   gem.email = "josh@pack.io"
   gem.authors = ["Josh Toft"]
+  gem.version = Pack::VERSION
   # dependencies defined in Gemfile
 end
 Jeweler::RubygemsDotOrgTasks.new
@@ -32,19 +35,11 @@ Rake::TestTask.new(:test) do |test|
   test.verbose = true
 end
 
-require 'rcov/rcovtask'
-Rcov::RcovTask.new do |test|
-  test.libs << 'test'
-  test.pattern = 'test/**/test_*.rb'
-  test.verbose = true
-  test.rcov_opts << '--exclude "gems/*"'
-end
-
 task :default => :test
 
 require 'rdoc/task'
 Rake::RDocTask.new do |rdoc|
-  version = File.exist?('VERSION') ? File.read('VERSION') : ""
+  version = Pack::VERSION
 
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title = "pack #{version}"
