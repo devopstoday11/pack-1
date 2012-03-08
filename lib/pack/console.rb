@@ -28,6 +28,7 @@ module Pack
     
     # Parses the cli options and handles invalids with sanity.
     def get_cli_options
+      ARGV << "--help" if ARGV.size == 0
       begin
         self.parse_options
       rescue OptionParser::InvalidOption => e
