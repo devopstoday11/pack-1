@@ -4,7 +4,7 @@ require 'highline'
 require 'rest_client'
 
 module Pack
-  VERSION = '0.1'
+  VERSION = '0.0.1'
 end
 
 require 'pack/console'
