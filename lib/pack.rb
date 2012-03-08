@@ -1,5 +1,5 @@
 $:.unshift File.dirname(__FILE__)
-require 'mixlib-cli'
+require 'mixlib/cli'
 require 'highline'
 require 'rest_client'
 

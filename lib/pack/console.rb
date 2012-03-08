@@ -21,7 +21,19 @@ module Pack
       proc: lambda {|v| puts "Pack: #{::Pack::VERSION}"},
       exit: 0
     
+    # Startup the console.
     def run
+      get_cli_options
     end
+    
+    # Parses the cli options and handles invalids with sanity.
+    def get_cli_options
+      begin
+        self.parse_options
+      rescue OptionParser::InvalidOption => e
+        puts "#{e}\n"
+      end
+    end
+    
   end
 end
