@@ -3,6 +3,7 @@ source "http://rubygems.org"
 # Example:
 #   gem "activesupport", ">= 2.3.5"
 
+gem "mixlib-cli", "~> 1.2.2"
 gem "highline", "~> 1.6.11"
 gem "rest-client", "~> 1.6.7"
 
