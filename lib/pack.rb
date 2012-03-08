@@ -1,4 +1,6 @@
 $:.unshift File.dirname(__FILE__)
+require 'highline'
+require 'rest_client'
 
 module Pack
   VERSION = '0.1'
